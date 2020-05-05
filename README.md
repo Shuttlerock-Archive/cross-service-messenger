@@ -1,5 +1,9 @@
 # CrossServiceMessenger
 
+[![CircleCI](https://circleci.com/gh/Shuttlerock/cross-service-messenger.svg?style=svg)](https://circleci.com/gh/Shuttlerock/cross-service-messenger)
+
+# About
+
 Service for communicate apps via AWS SQS.
 
 ## Installation in Ruby application
@@ -17,6 +21,21 @@ And then execute:
 Or install it yourself as:
 
     $ gem install cross-service-messenger
+
+### Setup a service
+
+```ruby
+CrossServiceMessenger.setup do |config|
+  config.aws_access_key_id     = ENV['AWS_ACCESS_KEY_ID']
+  config.aws_secret_access_key = ENV['AWS_SECRET_ACCESS_KEY']
+  config.aws_region            = ENV['AWS_REGION']
+  config.queue_names           = {
+    from_some_app: 'some_app_prodution_to_my_app_production',
+    to_some_app:   'my_app_production_to_some_app_production',
+  }
+end
+```
+
 
 ## Development
 

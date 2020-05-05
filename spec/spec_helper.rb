@@ -1,14 +1,15 @@
 # frozen_string_literal: true
 
 require 'simplecov'
+
 SimpleCov.start do
   add_filter 'spec/'
 end
 
-require 'rspec'
-# require 'rack/test'
-require 'cross_service_messenger'
+if ENV['CI'] == 'true'
+  require 'codecov'
+  SimpleCov.formatter = SimpleCov::Formatter::Codecov
+end
 
-# RSpec.configure do |conf|
-#   conf.include Rack::Test::Methods
-# end
+require 'rspec'
+require 'cross_service_messenger'

@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Aleksei Vokhmin']
   spec.email         = ['avokhmin@gmail.com']
   spec.summary       = 'Service for communicate apps via AWS SQS.'
-  spec.description   = 'Service for communicate apps via AWS SQS.'
+  spec.description   = 'Allow to send/pull messages via AWS SQS.'
   spec.homepage      = 'https://github.com/Shuttlerock/cross-service-messenger'
   spec.license       = 'MIT'
 
@@ -20,10 +20,11 @@ Gem::Specification.new do |spec|
   spec.platform      = Gem::Platform::RUBY
   spec.required_ruby_version = '>= 2.6.0'
 
-  spec.add_development_dependency 'rspec',                     '>= 3.9.0'
-  spec.add_development_dependency 'rubocop-performance',       '>= 1.5.2'
-  spec.add_development_dependency 'shuttlerock_shared_config', '>= 0.2.29'
-  spec.add_development_dependency 'simplecov',                 '>= 0.16.0'
+  spec.add_development_dependency 'codecov',                   '~> 0.1'
+  spec.add_development_dependency 'rspec',                     '~> 3.9'
+  spec.add_development_dependency 'rubocop-performance',       '~> 1.5'
+  spec.add_development_dependency 'shuttlerock_shared_config', '~> 0.2'
+  spec.add_development_dependency 'simplecov',                 '~> 0.16'
 
-  spec.add_runtime_dependency 'aws-sdk-sqs', '>= 1.24.0'
+  spec.add_runtime_dependency 'aws-sdk-sqs', '~> 1.24'
 end

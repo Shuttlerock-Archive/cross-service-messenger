@@ -26,8 +26,10 @@ RSpec.describe CrossServiceMessenger::Client do
 
     it 'pulls a messages from app' do
       allow(subject).to receive(:queue_url) { 'http://example.com' }
-      expect_any_instance_of(Aws::SQS::QueuePoller).to receive(:poll)
-      subject.pull
+      expect_any_instance_of(Aws::SQS::QueuePoller).to receive(:poll).and_yield(double(body: 'message'))
+      subject.pull do |msg|
+        expect(msg).to eq 'message'
+      end
     end
   end
 
